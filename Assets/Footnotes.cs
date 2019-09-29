@@ -1739,7 +1739,7 @@ Position type: tl tr bl br (only used in intro conditions 1 and 2)
     private readonly string TwitchHelpMessage = @"Use !{0} (submit/s/answer/a/press/p) (letter/number/color) to press a button. A color will only be submitted if its full name (red/yellow/green/blue) is given; using 'B' submits bravo, not blue.";
     private readonly bool TwitchShouldCancelCommand = false;
 #pragma warning restore 414
-    /*
+
     private IEnumerator ProcessTwitchCommand(string command)
     {
         tpActive = true;
@@ -1766,30 +1766,88 @@ Position type: tl tr bl br (only used in intro conditions 1 and 2)
             theError = "sendtochaterror Not enough arguments! You need to use (submit/s/answer/a/press/p), then a letter, number, or color.";
             yield return theError;
         }
+        else if (piecesRaw[0] == "submit" || piecesRaw[0] == "answer" || piecesRaw[0] == "press" ||
+            piecesRaw[0] == "s" || piecesRaw[0] == "a" || piecesRaw[0] == "p")
+        {
+            //Debug.Log("Answer in");
+            var listPosNum = -1;
+            if (piecesRaw[1] == "red" || piecesRaw[1] == "yellow" || piecesRaw[1] == "green" || piecesRaw[1] == "blue")
+            {
+                //Debug.Log("Color chosen");
+                listPosNum = Array.IndexOf(colorNames, piecesRaw[1]);
+                for (int buttonNum = 0; buttonNum < 4; buttonNum++)
+                {
+                    if (buttonValues[buttonNum, 0] == listPosNum)
+                    {
+                        yield return new WaitForSeconds(.1f);
+                        yield return null;
+                        doSubmit(buttonNum);
+                    }
+                }
+            }
+            else if (piecesRaw[1] == "1" || piecesRaw[1] == "2" || piecesRaw[1] == "3" || piecesRaw[1] == "4")
+            {
+                //Debug.Log("Number chosen: " + piecesRaw[1]);
+                //Debug.Log("Numbers: " + numberNames[0] + ", " + numberNames[1] + ", " + numberNames[2] + ", " +numberNames[3] + ".");
+                listPosNum = Array.IndexOf(numberNames, Int16.Parse(piecesRaw[1]));
+                //Debug.Log("listPosNum = " + listPosNum);
+                for (int buttonNum = 0; buttonNum < 4; buttonNum++)
+                {
+                    //Debug.Log("buttonNum = " + buttonNum + " and buttonValues[buttonNum, 2] is " + buttonValues[buttonNum, 2]);
+                    if (buttonValues[buttonNum, 2] == listPosNum)
+                    {
+                        yield return new WaitForSeconds(.1f);
+                        yield return null;
+                        doSubmit(buttonNum);
+                    }
+                }
+            }
+            else if (piecesRaw[1] == "a" || piecesRaw[1] == "b" || piecesRaw[1] == "c" || piecesRaw[1] == "d")
+            {
+                //Debug.Log("Letter chosen");
+                listPosNum = Array.IndexOf(letterNames, piecesRaw[1].ToUpperInvariant());
+                for (int buttonNum = 0; buttonNum < 4; buttonNum++)
+                {
+                    if (buttonValues[buttonNum, 1] == listPosNum)
+                    {
+                        yield return new WaitForSeconds(.1f);
+                        yield return null;
+                        doSubmit(buttonNum);
+                    }
+                }
+                //submit.OnInteract();
 
+            }
+            else
+            {
+                theError = "sendtochaterror Sorry, I did not recognize the argument: '" + piecesRaw[1] + "'. Valid colors are red, yellow, green, blue. Valid letters are A, B, C, D. Valid numbers are 1, 2, 3, 4.";
+                yield return theError;
+            }
+        }
         else
         {
-                yield return new WaitForSeconds(.1f);
-                yield return null;
-                submit.OnInteract();
+                theError = "sendtochaterror Sorry, I did not recognize the command: '" + piecesRaw[0] + "'. You must use submit, answer, press, s, a, or p, as well as a color, letter, or number.";
+                yield return theError;
         }
      }
-    */
 
     void doSubmit(int index)
     {
         if (pressedAllowed)
         {
+            Debug.LogFormat("[Footnotes #{0}] You pressed the {1} {2} button.", _moduleId, colorNames[buttonValues[index, 0]],
+                (letterNames[buttonValues[index, 1]] + numberNames[buttonValues[index, 2]]));
             if (index == correctButton)
             {
                 Debug.LogFormat("[Footnotes #{0}] This is correct, module disarmed!", _moduleId);
+                //Debug.LogFormat("[Footnotes #{0}] GetFormattedTime is {1}, GetTime is {2}!", _moduleId, Bomb.GetFormattedTime(), Bomb.GetTime());
                 pressedAllowed = false;
                 isSolved = true;
                 Module.HandlePass();
             }
             else
             {
-                Debug.LogFormat("[Footnotes #{0}] Strike given.", _moduleId);
+                Debug.LogFormat("[Footnotes #{0}] Wrong, strike given.", _moduleId);
                 realInstruction = "";
                 realInstructionT = "";
                 fakeInstruction = "";

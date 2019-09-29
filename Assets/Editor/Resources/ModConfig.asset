@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: footnotes
   title: Footnotes
-  description: 'Footnotes v1.00
+  description: 'Footnotes v1.01
 
     This module will be a piece of cake*.
 
@@ -22,6 +22,6 @@ MonoBehaviour:
 
 
     * work'
-  version: 1.00
+  version: 1.01
   outputFolder: build
   previewImage: {fileID: 2800000, guid: 61f2b678570ba834fb84511aa5aa4975, type: 3}
