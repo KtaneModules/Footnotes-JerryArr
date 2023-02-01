@@ -379,7 +379,6 @@ Position type: tl tr bl br (only used in intro conditions 1 and 2)
 			}
             
         }
-		/* currentAccessory = UnityEngine.Random.Range(0, 6); */
 		for (int bN = 0; bN < 4; bN++)
 		{		
 			Debug.LogFormat("[Footnotes #{0}] The {1} button is a {2} {3}.", _moduleId, locationNames[bN], 
@@ -398,6 +397,7 @@ Position type: tl tr bl br (only used in intro conditions 1 and 2)
 		falseButton = (UnityEngine.Random.Range(1, 4) + trueButton) % 4;
 
         trueButtonType = UnityEngine.Random.Range(0, 4);
+        //trueButtonType = 3;  ///////////////////////////////////
 		falseButtonType = (UnityEngine.Random.Range(1, 4) + trueButtonType) % 4;
 
 
@@ -511,18 +511,18 @@ Position type: tl tr bl br (only used in intro conditions 1 and 2)
                 if (sumGreater)
                 {
                     fakeInstruction = fakeInstruction + " button is " + introConditions0[footnoteDirection1[footnoteValues[0], (curIndex + 9) % 10]] + footnoteNames[footnoteValues[0]] + " the ";
-                    displayedInstruction = displayedInstruction + " button\nis " + introConditions0[footnoteDirection1[footnoteValues[0], (curIndex + 9) % 10]] + footnoteNames[footnoteValues[0]] + "the\n";
+                    displayedInstruction = displayedInstruction + " button\nis " + introConditions0[footnoteDirection1[footnoteValues[0], (curIndex + 9) % 10]] + footnoteNames[footnoteValues[0]] + " the\n";
                 }
                 else
                 {
                     fakeInstruction = fakeInstruction + " button is " + introConditions0[footnoteDirection1[footnoteValues[0], (curIndex + 1) % 10]] + footnoteNames[footnoteValues[0]] + " the ";
-                    displayedInstruction = displayedInstruction + " button\nis " + introConditions0[footnoteDirection1[footnoteValues[0], (curIndex + 1) % 10]] + footnoteNames[footnoteValues[0]] + "the\n";
+                    displayedInstruction = displayedInstruction + " button\nis " + introConditions0[footnoteDirection1[footnoteValues[0], (curIndex + 1) % 10]] + footnoteNames[footnoteValues[0]] + " the\n";
                 }
             }
             else if (introFootnoteOmitted == 1)
             {
                 fakeInstruction = fakeInstruction + " button is " + introConditions0[introInstruction] + " the ";
-                displayedInstruction = displayedInstruction + " button is\n" + introConditions0[introInstruction] + "the\n";
+                displayedInstruction = displayedInstruction + " button is\n" + introConditions0[introInstruction] + " the\n";
             }
             else
             {
@@ -534,12 +534,12 @@ Position type: tl tr bl br (only used in intro conditions 1 and 2)
                 if (sumGreater)
                 {
                     fakeInstruction = fakeInstruction + " button is " + introConditions0[footnoteDirection1[footnoteValues[1], (curIndex + 9) % 10]] + footnoteNames[footnoteValues[1]] + " the ";
-                    displayedInstruction = displayedInstruction + " button\nis " + introConditions0[footnoteDirection1[footnoteValues[1], (curIndex + 9) % 10]] + footnoteNames[footnoteValues[1]] + "the\n";
+                    displayedInstruction = displayedInstruction + " button\nis " + introConditions0[footnoteDirection1[footnoteValues[1], (curIndex + 9) % 10]] + footnoteNames[footnoteValues[1]] + " the\n";
                 }
                 else
                 {
                     fakeInstruction = fakeInstruction + " button is " + introConditions0[footnoteDirection1[footnoteValues[1], (curIndex + 1) % 10]] + footnoteNames[footnoteValues[1]] + " the ";
-                    displayedInstruction = displayedInstruction + " button\nis " + introConditions0[footnoteDirection1[footnoteValues[1], (curIndex + 1) % 10]] + footnoteNames[footnoteValues[1]] + "the\n";
+                    displayedInstruction = displayedInstruction + " button\nis " + introConditions0[footnoteDirection1[footnoteValues[1], (curIndex + 1) % 10]] + footnoteNames[footnoteValues[1]] + " the\n";
                 }
             }
             
@@ -750,18 +750,18 @@ Position type: tl tr bl br (only used in intro conditions 1 and 2)
                 if (sumGreater)
                 {
                     fakeInstruction = fakeInstruction + " button's number " + introConditions1[footnoteInequality[footnoteValues[0], (curIndex + 7) % 8]] + footnoteNames[footnoteValues[0]] + " the ";
-                    displayedInstruction = displayedInstruction + " button's number\n" + introConditions1[footnoteInequality[footnoteValues[0], (curIndex + 7) % 8]] + footnoteNames[footnoteValues[0]] + "the\n";
+                    displayedInstruction = displayedInstruction + " button's number\n" + introConditions1[footnoteInequality[footnoteValues[0], (curIndex + 7) % 8]] + footnoteNames[footnoteValues[0]] + " the\n";
                 }
                 else
                 {
                     fakeInstruction = fakeInstruction + " button's number " + introConditions1[footnoteInequality[footnoteValues[0], (curIndex + 1) % 8]] + footnoteNames[footnoteValues[0]] + " the ";
-                    displayedInstruction = displayedInstruction + " button's number\n" + introConditions1[footnoteInequality[footnoteValues[0], (curIndex + 1) % 8]] + footnoteNames[footnoteValues[0]] + "the\n";
+                    displayedInstruction = displayedInstruction + " button's number\n" + introConditions1[footnoteInequality[footnoteValues[0], (curIndex + 1) % 8]] + footnoteNames[footnoteValues[0]] + " the\n";
                 }
             }
             else if (introFootnoteOmitted == 1)
             {
                 fakeInstruction = fakeInstruction + " button's number " + introConditions1[introInstruction] + " the ";
-                displayedInstruction = displayedInstruction + " button's number\n" + introConditions1[introInstruction] + "the\n";
+                displayedInstruction = displayedInstruction + " button's number\n" + introConditions1[introInstruction] + " the\n";
             }
             else
             { /*
@@ -783,12 +783,12 @@ Position type: tl tr bl br (only used in intro conditions 1 and 2)
                 if (sumGreater)
                 {
                     fakeInstruction = fakeInstruction + " button's number " + introConditions1[footnoteInequality[footnoteValues[1], (curIndex + 7) % 8]] + footnoteNames[footnoteValues[1]] + " the ";
-                    displayedInstruction = displayedInstruction + " button's number\n" + introConditions1[footnoteInequality[footnoteValues[1], (curIndex + 7) % 8]] + footnoteNames[footnoteValues[1]] + "the\n";
+                    displayedInstruction = displayedInstruction + " button's number\n" + introConditions1[footnoteInequality[footnoteValues[1], (curIndex + 7) % 8]] + footnoteNames[footnoteValues[1]] + " the\n";
                 }
                 else
                 {
                     fakeInstruction = fakeInstruction + " button's number " + introConditions1[footnoteInequality[footnoteValues[1], (curIndex + 1) % 8]] + footnoteNames[footnoteValues[1]] + " the ";
-                    displayedInstruction = displayedInstruction + " button's number\n" + introConditions1[footnoteInequality[footnoteValues[1], (curIndex + 1) % 8]] + footnoteNames[footnoteValues[1]] + "the\n";
+                    displayedInstruction = displayedInstruction + " button's number\n" + introConditions1[footnoteInequality[footnoteValues[1], (curIndex + 1) % 8]] + footnoteNames[footnoteValues[1]] + " the\n";
                 }
             }
             
@@ -924,18 +924,18 @@ Position type: tl tr bl br (only used in intro conditions 1 and 2)
                 if (sumGreater)
                 {
                     fakeInstruction = fakeInstruction + " " + introConditions1[footnoteInequality[footnoteValues[0], (curIndex + 7) % 8]] + footnoteNames[footnoteValues[0]] + " the ";
-                    displayedInstruction = displayedInstruction + "\n" + introConditions1[footnoteInequality[footnoteValues[0], (curIndex + 7) % 8]] + footnoteNames[footnoteValues[0]] + "the\n";
+                    displayedInstruction = displayedInstruction + "\n" + introConditions1[footnoteInequality[footnoteValues[0], (curIndex + 7) % 8]] + footnoteNames[footnoteValues[0]] + " the\n";
                 }
                 else
                 {
                     fakeInstruction = fakeInstruction + " " + introConditions1[footnoteInequality[footnoteValues[0], (curIndex + 1) % 8]] + footnoteNames[footnoteValues[0]] + " the ";
-                    displayedInstruction = displayedInstruction + "\n" + introConditions1[footnoteInequality[footnoteValues[0], (curIndex + 1) % 8]] + footnoteNames[footnoteValues[0]] + "the\n";
+                    displayedInstruction = displayedInstruction + "\n" + introConditions1[footnoteInequality[footnoteValues[0], (curIndex + 1) % 8]] + footnoteNames[footnoteValues[0]] + " the\n";
                 }
             }
             else if (introFootnoteOmitted == 1)
             {
                 fakeInstruction = fakeInstruction + " " + introConditions1[introInstruction] + " the ";
-                displayedInstruction = displayedInstruction + "\n" + introConditions1[introInstruction] + "the\n";
+                displayedInstruction = displayedInstruction + "\n" + introConditions1[introInstruction] + " the\n";
             }
             else
             {
@@ -947,12 +947,12 @@ Position type: tl tr bl br (only used in intro conditions 1 and 2)
                 if (sumGreater)
                 {
                     fakeInstruction = fakeInstruction + " " + introConditions1[footnoteInequality[footnoteValues[1], (curIndex + 7) % 8]] + footnoteNames[footnoteValues[1]] + " the ";
-                    displayedInstruction = displayedInstruction + "\n" + introConditions1[footnoteInequality[footnoteValues[1], (curIndex + 7) % 8]] + footnoteNames[footnoteValues[1]] + "the\n";
+                    displayedInstruction = displayedInstruction + "\n" + introConditions1[footnoteInequality[footnoteValues[1], (curIndex + 7) % 8]] + footnoteNames[footnoteValues[1]] + " the\n";
                 }
                 else
                 {
                     fakeInstruction = fakeInstruction + " " + introConditions1[footnoteInequality[footnoteValues[1], (curIndex + 1) % 8]] + footnoteNames[footnoteValues[1]] + " the ";
-                    displayedInstruction = displayedInstruction + "\n" + introConditions1[footnoteInequality[footnoteValues[1], (curIndex + 1) % 8]] + footnoteNames[footnoteValues[1]] + "the\n";
+                    displayedInstruction = displayedInstruction + "\n" + introConditions1[footnoteInequality[footnoteValues[1], (curIndex + 1) % 8]] + footnoteNames[footnoteValues[1]] + " the\n";
                 }
             }
             
@@ -1016,19 +1016,19 @@ Position type: tl tr bl br (only used in intro conditions 1 and 2)
                     if (introFootnoteOmitted != 2)
                     {
                         curIndex = 0;
-                        while (Array.IndexOf(locationNames, locationNames[introButton2]) != footnoteButtonPos[footnoteValues[1], 2, curIndex])
+                        while (Array.IndexOf(locationNames, locationNames[introButton2]) != footnoteButtonPos[footnoteValues[1], 3, curIndex])
                         {
                             curIndex++;
                         }
                         if (sumGreater)
                         {
-                            fakeInstruction = fakeInstruction + locationNames[footnoteButtonPos[footnoteValues[1], 2, (curIndex + 3) % 4]] + footnoteNames[footnoteValues[1]];
-                            displayedInstruction = displayedInstruction + locationNames[footnoteButtonPos[footnoteValues[1], 2, (curIndex + 3) % 4]] + footnoteNames[footnoteValues[1]];
+                            fakeInstruction = fakeInstruction + locationNames[footnoteButtonPos[footnoteValues[1], 3, (curIndex + 3) % 4]] + footnoteNames[footnoteValues[1]];
+                            displayedInstruction = displayedInstruction + locationNames[footnoteButtonPos[footnoteValues[1], 3, (curIndex + 3) % 4]] + footnoteNames[footnoteValues[1]];
                         }
                         else
                         {
-                            fakeInstruction = fakeInstruction + locationNames[footnoteButtonPos[footnoteValues[1], 2, (curIndex + 1) % 4]] + footnoteNames[footnoteValues[1]];
-                            displayedInstruction = displayedInstruction + locationNames[footnoteButtonPos[footnoteValues[1], 2, (curIndex + 1) % 4]] + footnoteNames[footnoteValues[1]];
+                            fakeInstruction = fakeInstruction + locationNames[footnoteButtonPos[footnoteValues[1], 3, (curIndex + 1) % 4]] + footnoteNames[footnoteValues[1]];
+                            displayedInstruction = displayedInstruction + locationNames[footnoteButtonPos[footnoteValues[1], 3, (curIndex + 1) % 4]] + footnoteNames[footnoteValues[1]];
                         }
                     }
                     else
@@ -1070,18 +1070,18 @@ Position type: tl tr bl br (only used in intro conditions 1 and 2)
                 if (sumGreater)
                 {
                     fakeInstructionT = fakeInstructionT + finalInstructions[footnoteDirection2[footnoteValues[2], (curIndex + 5) % 6]] + footnoteNames[footnoteValues[2]] + " the "; 
-                    displayedInstructionT = displayedInstructionT + finalInstructions[footnoteDirection2[footnoteValues[2], (curIndex + 5) % 6]] + footnoteNames[footnoteValues[2]] + "the\n";
+                    displayedInstructionT = displayedInstructionT + finalInstructions[footnoteDirection2[footnoteValues[2], (curIndex + 5) % 6]] + footnoteNames[footnoteValues[2]] + " the\n";
                 }
                 else
                 {
                     fakeInstructionT = fakeInstructionT + finalInstructions[footnoteDirection2[footnoteValues[2], (curIndex + 1) % 6]] + footnoteNames[footnoteValues[2]] + " the ";
-                    displayedInstructionT = displayedInstructionT + finalInstructions[footnoteDirection2[footnoteValues[2], (curIndex + 1) % 6]] + footnoteNames[footnoteValues[2]] + "the\n";
+                    displayedInstructionT = displayedInstructionT + finalInstructions[footnoteDirection2[footnoteValues[2], (curIndex + 1) % 6]] + footnoteNames[footnoteValues[2]] + " the\n";
                 }
             }
             else
             {
                 fakeInstructionT = fakeInstructionT + finalInstructions[trueInstruction] + " the ";
-                displayedInstructionT = displayedInstructionT + finalInstructions[trueInstruction] + "the\n";
+                displayedInstructionT = displayedInstructionT + finalInstructions[trueInstruction] + " the\n";
             }
             switch (trueButtonType)
             {
@@ -1176,6 +1176,7 @@ Position type: tl tr bl br (only used in intro conditions 1 and 2)
                     else
                     {
                         curIndex = 0;
+						
                         while (Array.IndexOf(locationNames, locationNames[trueButton]) != footnoteButtonPos[footnoteValues[2], 3, curIndex])
                         {
                             curIndex++;
@@ -1207,18 +1208,18 @@ Position type: tl tr bl br (only used in intro conditions 1 and 2)
                 if (sumGreater)
                 {
                     fakeInstructionT = fakeInstructionT + finalInstructions[footnoteDirection2[footnoteValues[3], (curIndex + 5) % 6]] + footnoteNames[footnoteValues[3]] + " the ";
-                    displayedInstructionT = displayedInstructionT + finalInstructions[footnoteDirection2[footnoteValues[3], (curIndex + 5) % 6]] + footnoteNames[footnoteValues[3]] + "the\n";
+                    displayedInstructionT = displayedInstructionT + finalInstructions[footnoteDirection2[footnoteValues[3], (curIndex + 5) % 6]] + footnoteNames[footnoteValues[3]] + " the\n";
                 }
                 else
                 {
                     fakeInstructionT = fakeInstructionT + finalInstructions[footnoteDirection2[footnoteValues[3], (curIndex + 1) % 6]] + footnoteNames[footnoteValues[3]] + " the ";
-                    displayedInstructionT = displayedInstructionT + finalInstructions[footnoteDirection2[footnoteValues[3], (curIndex + 1) % 6]] + footnoteNames[footnoteValues[3]] + "the\n";
+                    displayedInstructionT = displayedInstructionT + finalInstructions[footnoteDirection2[footnoteValues[3], (curIndex + 1) % 6]] + footnoteNames[footnoteValues[3]] + " the\n";
                 }
             }
             else
             {
                 fakeInstructionT = fakeInstructionT + finalInstructions[falseInstruction] + " the ";
-                displayedInstructionT = displayedInstructionT + finalInstructions[falseInstruction] + "the\n";
+                displayedInstructionT = displayedInstructionT + finalInstructions[falseInstruction] + " the\n";
             }
 
             switch (falseButtonType)
@@ -1781,7 +1782,7 @@ Position type: tl tr bl br (only used in intro conditions 1 and 2)
                     {
                         yield return new WaitForSeconds(.1f);
                         yield return null;
-                        doSubmit(buttonNum);
+                        button[buttonNum].OnInteract();
                     }
                 }
             }
@@ -1798,7 +1799,7 @@ Position type: tl tr bl br (only used in intro conditions 1 and 2)
                     {
                         yield return new WaitForSeconds(.1f);
                         yield return null;
-                        doSubmit(buttonNum);
+                        button[buttonNum].OnInteract();
                     }
                 }
             }
@@ -1812,7 +1813,7 @@ Position type: tl tr bl br (only used in intro conditions 1 and 2)
                     {
                         yield return new WaitForSeconds(.1f);
                         yield return null;
-                        doSubmit(buttonNum);
+                        button[buttonNum].OnInteract();
                     }
                 }
                 //submit.OnInteract();
